@@ -4,12 +4,17 @@ import { Button } from 'antd';
 
 const Home: React.FunctionComponent = () => {
   return (
-    <Fragment>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flexDirection: 'column'
+    }}>
       <h1>Github Clone</h1>
       <Link href="/login">
         <Button type="primary">Login</Button>
       </Link>
-    </Fragment>
+    </div>
   );
 };
 
