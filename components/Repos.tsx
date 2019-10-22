@@ -11,7 +11,7 @@ type Props = {
   username: string
 }
 
-const formater = (response: []) => {
+const formatter = (response: []) => {
   return response.map((repo: {
     id: number
     name: string
@@ -43,7 +43,7 @@ const Repos: React.FunctionComponent<Props> = ({ username }) => {
         const response = await fetchWrapper(
           `https://api.github.com/users/${username}/repos`
         )
-        dispatch({ type: USER_REPOS, data: formater(response) })
+        dispatch({ type: USER_REPOS, data: formatter(response) })
       } catch (error) {
         message.error('Ops! Something went wrong')
       } finally {
@@ -64,7 +64,7 @@ const Repos: React.FunctionComponent<Props> = ({ username }) => {
             const response = await fetchWrapper(
               `https://api.github.com/search/repositories?q=${value}+user:${username}`
             );
-            dispatch({type: USER_REPOS, data: formater(response.items)})
+            dispatch({type: USER_REPOS, data: formatter(response.items)})
           } catch {
             message.error('Ops! Something went wrong, please try again')
           } finally {
